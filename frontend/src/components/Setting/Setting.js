@@ -4,11 +4,13 @@ import { MdOutlineFileUpload } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import UpdateProfile from "../core/UpdateSection/UpdateProfile";
 import UpdateAddress from "../core/UpdateSection/UpdateAddress";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setImg } from "../../store/slices/userSlice";
 import { updateProfileImage } from "../../api/authApi";
 const Setting = () => {
   const { location, img, user } = useOutletContext();
+  const token =  useSelector((state)=>state.userSlice.token);
+
   const dispatch = useDispatch();
   const {
     register,
@@ -19,7 +21,8 @@ const Setting = () => {
   const submitHandler =  (data) =>{
      const formData = new FormData();
      formData.append("profileImage",data?.profileImage[0])
-     updateProfileImage(formData);
+
+     updateProfileImage(formData,token);
   }
   const preview =async (e) =>{
     const reader = new FileReader();
