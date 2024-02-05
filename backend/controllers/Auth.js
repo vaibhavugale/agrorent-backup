@@ -35,7 +35,7 @@ exports.signIn = async (req, res) => {
         httpOnly: true,
         secure: true,
         path:"/",
-        SameSite:"None"
+        sameSite: 'None' 
    
   
       };
