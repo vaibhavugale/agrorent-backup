@@ -9,7 +9,7 @@ const UserEquCard = () => {
      <div className=' w-full h-min grid  grid-cols-3  gap-5  p-5'>
 
         {
-          user?.equipments.map((cardData)=>  <ProductCard cardData={ cardData} />)
+          user?.equipments.map((cardData,index)=>  <ProductCard key={index} cardData={ cardData} />)
         }
      
       

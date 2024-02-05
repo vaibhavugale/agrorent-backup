@@ -35,9 +35,7 @@ exports.signIn = async (req, res) => {
         httpOnly: true,
         secure: true,
         path:"/",
-        sameSite: 'None' 
-   
-  
+        sameSite:'None'
       };
       await res.cookie("token", token, options)
       return  res.status(200).json({
