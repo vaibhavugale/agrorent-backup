@@ -13,6 +13,7 @@ const { authentication } = require("./middleware/Auth");
 const { sendMessage } = require("./services/whatsappService.js");
 const router = require("express").Router();
 
+
 dotenv.config();
 
 app.use(express.json());
@@ -21,8 +22,10 @@ app.use(
 	cors({
 		origin:"http://localhost:3000",
 		credentials:true,
+		
 	})
 )
+
 app.use(
 	fileUpload({
 		useTempFiles: true,

@@ -33,6 +33,9 @@ exports.signIn = async (req, res) => {
       const options = {
         expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
         httpOnly: true,
+        secure: true,
+        overwrite:true,
+  
       };
       await res.cookie("token", token, options)
       return  res.status(200).json({
@@ -112,11 +115,8 @@ exports.signUp = async (req, res) => {
 
 exports.logout = async (req,res)=>{
    try{
-    const options = {
-      expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
-      httpOnly: true,
-    };
-    return res.cookie("token", "", options).status(200).json({
+    res.clearCookie('token');
+    return res.status(200).json({
       success:true,
       message:"Logout successfully"
     })

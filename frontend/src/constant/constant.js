@@ -1,7 +1,10 @@
-export const LOGIN_API = "http://localhost:4000/auth/login";
-export const SIGNUP_API = "http://localhost:4000/auth/signup";
-export const UPDATE_ADDRESS = "http://localhost:4000/profile/update-user-address"
-export const UPDATE_PROFILE = "http://localhost:4000/profile/update-user-detail"
-export const LOGOUT = "http://localhost:4000/auth/logout"
-export const UPDATE_IMAGE = "http://localhost:4000/profile/updateImage";
-export const REGISTER_EQUIPMENT = "http://localhost:4000/equ/registerEquipment"
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
+
+export const LOGIN_API = BASE_URL+"/auth/login";
+export const SIGNUP_API = BASE_URL+"/auth/signup";
+export const UPDATE_ADDRESS = BASE_URL+"/profile/update-user-address"
+export const UPDATE_PROFILE = BASE_URL+"/profile/update-user-detail"
+export const LOGOUT = BASE_URL+"/auth/logout"
+export const UPDATE_IMAGE = BASE_URL+"/profile/updateImage";
+export const REGISTER_EQUIPMENT = BASE_URL+"/equ/registerEquipment"
