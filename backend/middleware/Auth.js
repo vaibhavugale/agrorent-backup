@@ -3,7 +3,13 @@ const User = require("../models/User");
 
 exports.authentication = async (req, res, next) => {
   try {
-    const { token } = req.cookies;
+    const token = 
+    req.cookies.token ||
+    req.body.token ||
+    req.header("Authorization").replace("Bearer ", "");
+    // const authHeader = req.headers['authorization'];
+    // const token = authHeader.split(' ')[1]; 
+    
     if (!token) {
       return res.status(403).json({
         success: false,
@@ -27,6 +33,7 @@ exports.authentication = async (req, res, next) => {
   } catch (err) {
     return res.status(500).json({
       success: false,
+      error:err.message,
       message: "Internal server error, Return from middleware...",
     });
   }

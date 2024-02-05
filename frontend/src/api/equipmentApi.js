@@ -2,12 +2,12 @@ import toast from "react-hot-toast";
 import { apiConnector } from "./apiConnector";
 import { REGISTER_EQUIPMENT } from "../constant/constant";
 
-export  function registeredEquip(formData,reset,setData){
+export  function registeredEquip(formData,reset,setData,token){
     return async (dispatch)=>{
         const toastId = toast.loading("Uploading ")
         try{
 
-            const res = await apiConnector("POST",REGISTER_EQUIPMENT,formData);
+            const res = await apiConnector("POST",REGISTER_EQUIPMENT,formData,{ 'Authorization': `Bearer ${token}`});
             if(res?.data?.success){
                 toast.success("Registration successfully..");
                 toast.dismiss(toastId);

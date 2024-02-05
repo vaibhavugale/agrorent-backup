@@ -64,7 +64,7 @@ export function signup(data, navigate) {
     toast.dismiss(toastId);
   };
 }
-export async function logout(navigate,dispatch,e){
+export async function logout(navigate,dispatch,e,token){
  try{
   e.stopPropagation();
   
@@ -84,11 +84,15 @@ export async function logout(navigate,dispatch,e){
  }
 }
 
-export async function  updateAddress(data , navigate){
+export async function  updateAddress(data ,token){
  
      const toastId = toast.loading("loading")
         try{
-          const res = await apiConnector("PUT",UPDATE_ADDRESS,data);
+          
+          const res = await apiConnector("PUT",UPDATE_ADDRESS,data,{
+            "Content-Type": "multipart/form-data",
+            'Authorization': `Bearer ${token}`,
+          });
           if(res?.data?.success){
             toast.success("Updated successfully , Login Again To Aee Changes",{
               timeout: 5000,
@@ -105,7 +109,7 @@ export async function  updateAddress(data , navigate){
         }
 
 }
-export async function  updateProfile(data , navigate){
+export async function  updateProfile(data , navigate,token){
  
   const toastId = toast.loading("loading")
      try{

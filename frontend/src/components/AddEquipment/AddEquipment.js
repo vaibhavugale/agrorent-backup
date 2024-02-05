@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { logout } from "../../api/authApi";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Sup from "../../components/common/Sup/Sup";
 import ImagePreview from "../common/ImagePreview/ImagePreview";
 import Button from "../common/Button/Button";
@@ -14,6 +14,7 @@ const AddEquipment = () => {
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
   const [disabled,setDisabled] = useState(false);
+  const token = useSelector((state)=>state.userSlice.token)
  
 
   const {
@@ -30,7 +31,7 @@ const AddEquipment = () => {
     formData.append("image",data?.image[0]);
     formData.append("data",JSON.stringify(data)); 
     
-    dispatch(registeredEquip(formData,reset,setData,setDisabled));
+    dispatch(registeredEquip(formData,reset,setData,setDisabled,token));
   }
   return (
     <div className=" w-full  bg-formBg-100 flex justify-center h-[1200px] overflow-scroll">
