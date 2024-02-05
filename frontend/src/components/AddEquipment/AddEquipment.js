@@ -13,6 +13,7 @@ const AddEquipment = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
+  const [disabled,setDisabled] = useState(false);
  
 
   const {
@@ -29,7 +30,7 @@ const AddEquipment = () => {
     formData.append("image",data?.image[0]);
     formData.append("data",JSON.stringify(data)); 
     
-    dispatch(registeredEquip(formData,reset,setData));
+    dispatch(registeredEquip(formData,reset,setData,setDisabled));
   }
   return (
     <div className=" w-full  bg-formBg-100 flex justify-center h-[1200px] overflow-scroll">
@@ -38,7 +39,7 @@ const AddEquipment = () => {
           <p className=" font-semibold w-full text-2xl">
             Registered Your Equipment
           </p>
-          <Button  className={""} title={"Register"} />
+          <Button  className={" "} disabled={disabled} title={"Register"} />
         </div>
         <div className=" grid grid-cols-3 gap-6  p-5 items-center justify-center outline  outline-green-600 rounded-sm grid-rows-auto mt-10">
           <div className="  p-2">
@@ -155,6 +156,7 @@ const AddEquipment = () => {
             <p className=" tracking-wide">
               {" "}
               Rate/hr (Rs)<Sup>*</Sup>
+              {errors.rate &&  <span className=" text-xs text-red-700">This is required</span>}
             </p>
             <input
               type="text"
@@ -168,7 +170,7 @@ const AddEquipment = () => {
           {data ? (
             <ImagePreview
               data={data}
-              className={"w-[720px] relative rounded-md object-cover"}
+              className={"max-w-[450px] relative rounded-md object-cover"}
             />
           ) : (
             <div>

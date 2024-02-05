@@ -4,10 +4,12 @@ import { IoAddOutline } from "react-icons/io5";
 import { MdAccountCircle } from "react-icons/md";
 import { FaHistory } from "react-icons/fa";
 import { IoIosSettings } from "react-icons/io";
+import { FcSurvey } from "react-icons/fc";
 import { BiLogOut } from "react-icons/bi"; 
 import { useEffect } from 'react';
 import {logout} from "../../api/authApi"
 import { MdHistory } from "react-icons/md";
+import SideBar from '../common/SideBar/SideBar';
 
 const Profile = () => {
   const user = useSelector((state)=>state.userSlice.userData);
@@ -24,17 +26,9 @@ const Profile = () => {
     }
   },[user,navigate]);
   return (
-    <div className='min-h-[91vh] flex'> 
+    <div className='min-h-[91vh]   transition-all duration-300 flex'> 
          {/* Side bar */}
-        <aside className=' border-r border-OR-50 min-w-[160px]  overflow-hidden  hidden  md:flex flex-col'>
-          <div className=' flex flex-col justify-center  gap-3 w-full mt-5'>
-          <Link to={"/profile/account"} className='flex rounded-sm items-center  hover:text-white gap-1 p-2 w-full  hover:bg-slate-600 transition-all duration-300 '> <MdAccountCircle size={20} />Account</Link>
-          <Link to={"/profile/equipment"} className='flex rounded-sm items-center  hover:text-white  gap-1 p-2 w-full  hover:bg-slate-600 transition-all duration-300 ' ><IoAddOutline  size={20} />Equipment</Link>
-          <Link to={"/profile/history"} className='flex rounded-sm items-center  hover:text-white  gap-1 p-2 w-full  hover:bg-slate-600 transition-all duration-300 '> <MdHistory size={20} />History</Link>
-          <Link to={"/profile/setting"} className='flex rounded-sm items-center  hover:text-white   gap-1 p-2 w-full  hover:bg-slate-600 transition-all duration-300 ' > <IoIosSettings size={20}/>Setting</Link>
-          <button onClick={ (e)=>logout(navigate,dispatch,e)} className='flex rounded-sm   hover:text-white  items-center  gap-2 p-2 w-full  hover:bg-slate-600 transition-all duration-300 '> <BiLogOut />Logout</button>
-          </div>
-        </aside>
+        <SideBar location={location} navigate={navigate} dispatch={dispatch} />
        <Outlet  context={{location,user,img,address,navigate}} />
     </div>
   )

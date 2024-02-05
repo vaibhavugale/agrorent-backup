@@ -6,7 +6,7 @@ const equipmentSchema = new mongoose.Schema({
         type:String,
         require:true
       },
-      equType:{
+      type:{
         type:String,
         require:true
       },
@@ -31,7 +31,7 @@ const equipmentSchema = new mongoose.Schema({
         type:String,
 
       },
-      ratePerHour:{
+      rate:{
         type:String,
         require:true
       },

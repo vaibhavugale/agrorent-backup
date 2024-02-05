@@ -65,12 +65,10 @@ export function signup(data, navigate) {
   };
 }
 export async function logout(navigate,dispatch,e){
+ try{
   e.stopPropagation();
   
-
-  await apiConnector("POST",LOGOUT);
-  
-
+ 
   dispatch(setAddress(null));
   dispatch(setImg(null));
   dispatch(setUser(null));
@@ -78,7 +76,12 @@ export async function logout(navigate,dispatch,e){
   localStorage.clear('user');
   localStorage.clear('token');
   localStorage.clear('imgUrl');
+  await apiConnector("POST",LOGOUT);
   navigate("/");
+
+ }catch(err){
+    console.log(Error)
+ }
 }
 
 export async function  updateAddress(data , navigate){

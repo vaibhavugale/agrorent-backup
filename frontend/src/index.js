@@ -20,6 +20,8 @@ import AddEquipment from "./components/AddEquipment/AddEquipment";
 import Account from "./components/Account/Account";
 import History from "./components/History/History";
 import Setting from "./components/Setting/Setting";
+import UserEquCard from "./components/core/UserEquCard/UserEquCard";
+import Dashboard from "./components/core/Dashboard";
 const appRoutes = createBrowserRouter([
   {
     element: (
@@ -72,7 +74,11 @@ const appRoutes = createBrowserRouter([
             path:"/profile/setting",
             element:<Setting/>,
             errorElement:<Error/>
-
+          },
+          {
+            path:"/profile/user-product",
+            element:<UserEquCard/>,
+            errorElement:<Error/>
           }
         ]  ,
         errorElement: <Error />,   
@@ -80,6 +86,10 @@ const appRoutes = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path:"/dashboard",
+        element:<Dashboard />
       }
       
     ],

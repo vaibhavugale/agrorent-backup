@@ -5,7 +5,7 @@ import Button from '../../common/Button/Button';
 import { updateAddress } from '../../../api/authApi';
 
 const UpdateAddress = () => {
-    const {city,district ,countryState , country,pincode} = useSelector((state)=>state.userSlice.address);
+    const address = useSelector((state)=>state?.userSlice?.address);
     const [disabled,setDisabled] = useState(false);
     const {
         register,
@@ -27,24 +27,24 @@ const UpdateAddress = () => {
     <section className=" grid grid-cols-1 grid-rows-1 md:grid-rows-3 md:grid-cols-2 mt-4 gap-8">
          <div>
           <p className=' font-light text-sm'>City</p>
-          <input type='text' {...register("city",{required:true})} defaultValue={city} className=" outline outline-slate-200  font-semibold mt-1 md:w-[50%] w-full  rounded-sm px-3"/>
+          <input type='text' {...register("city",{required:true})} defaultValue={ address?.city ? address?.city : ""} className=" outline outline-slate-200  font-semibold mt-1 md:w-[50%] w-full  rounded-sm px-3"/>
          </div>
          <div>
           <p className=' font-light text-sm'>District</p>
-          <input type='text' {...register("district",{required:true})}   defaultValue={district ? district:" "} className=" outline outline-slate-200  font-semibold mt-1 md:w-[50%] w-full  rounded-sm px-3"/>
+          <input type='text' {...register("district",{required:true})}   defaultValue={address?.district ? address?.district:" "} className=" outline outline-slate-200  font-semibold mt-1 md:w-[50%] w-full  rounded-sm px-3"/>
          </div>
         
          <div>
           <p className=' font-light text-sm'>State</p>
-          <input type='text' {...register("countryState",{required:true})}  defaultValue={countryState ? countryState : ""} className=" outline outline-slate-200  font-semibold mt-1 md:w-[50%] w-full  rounded-sm px-3"/>
+          <input type='text' {...register("countryState",{required:true})}  defaultValue={address?.countryState ? address?.countryState : ""} className=" outline outline-slate-200  font-semibold mt-1 md:w-[50%] w-full  rounded-sm px-3"/>
          </div>
          <div>
           <p className=' font-light text-sm'>Country</p>
-          <input type='text' {...register("country",{required:true})}  defaultValue={country ? country:""} className=" outline outline-slate-200  font-semibold mt-1 md:w-[50%] w-full  rounded-sm px-3"/>
+          <input type='text' {...register("country",{required:true})}  defaultValue={address?.country ? address?.country:""} className=" outline outline-slate-200  font-semibold mt-1 md:w-[50%] w-full  rounded-sm px-3"/>
          </div>
          <div>
           <p className=' font-light text-sm'>Pin code</p>
-          <input type='text' {...register("pincode",{required:true})}  defaultValue={pincode ? country:""} className=" outline outline-slate-200  font-semibold mt-1 md:w-[50%] w-full  rounded-sm px-3"/>
+          <input type='text' {...register("pincode",{required:true})}  defaultValue={address?.pincode ? address?.country:""} className=" outline outline-slate-200  font-semibold mt-1 md:w-[50%] w-full  rounded-sm px-3"/>
          </div>
         
     </section>
