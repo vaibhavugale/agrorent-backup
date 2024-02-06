@@ -64,7 +64,7 @@ export function signup(data, navigate) {
     toast.dismiss(toastId);
   };
 }
-export async function logout(navigate,dispatch,e,token){
+export async function logout(navigate,dispatch,e){
  try{
   e.stopPropagation();
   

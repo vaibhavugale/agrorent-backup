@@ -2,14 +2,14 @@ import React from "react";
 import bgLandscape3 from "../../assets/images/bg-landescap.png";
 import "../about/About.css";
 import farmer from "../../assets/images/farmer.png";
-import bulldozer from "../../assets/bulldozerLogo.png"
-import leaf from '../../assets/leaf.png';
-import success from "../../assets/success.png"
+import bulldozer from "../../assets/bulldozerLogo.png";
+import leaf from "../../assets/leaf.png";
+import success from "../../assets/success.png";
 import CountUp from "react-countup";
 
 const Index = () => {
   return (
-    <div>
+    <div className=" relatives overflow-clip">
       {/* Welcome section */}
       <section className="w-full h-[93vh] flex justify-between flex-col items-center  mb-6">
         <div className="text-5xl mt-[10vh] text-center">
@@ -38,14 +38,13 @@ const Index = () => {
             cutting-edge technology. Join us in revolutionizing the way you
             cultivate, nurture, and harvest.
           </p>
-         
         </div>
-        
+
         <img className="w-full " src={bgLandscape3} alt="img" loading="lazy" />
       </section>
 
       {/* Explore section */}
-      <section className="h-[80vh]  relative flex justify-center  ">
+      <section className="min-h-[80vh]   relative flex justify-center  ">
         <div className=" w-[1080px] ">
           <img
             src={farmer}
@@ -60,9 +59,16 @@ const Index = () => {
             </p>
             <div className=" flex flex-col mt-[10%]">
               <div className=" flex gap-4 mt-8 w-full">
-                <img src={bulldozer} className=" w-[24px] h-[30px]"  alt="img" loading="lazy"/>
+                <img
+                  src={bulldozer}
+                  className=" w-[24px] h-[30px]"
+                  alt="img"
+                  loading="lazy"
+                />
                 <div>
-                  <h1 className=" font-semibold">Advanced Equipment, Accessible to All</h1>
+                  <h1 className=" font-semibold">
+                    Advanced Equipment, Accessible to All
+                  </h1>
                   <p className=" font-thin">
                     Unearth a treasure trove of state-of-the-art agricultural
                     equipment. From powerful tractors to precision planting
@@ -72,57 +78,82 @@ const Index = () => {
                 </div>
               </div>
               <div className=" flex gap-4 mt-8 w-ful ">
-                <img src={success} className=" w-[50px] h-[40px]"   alt="img" loading="lazy" />
+                <img
+                  src={success}
+                  className=" w-[50px] h-[40px]"
+                  alt="img"
+                  loading="lazy"
+                />
                 <div>
                   <h1 className=" font-semibold">Your Success, Our Priority</h1>
                   <p className=" font-thin">
-                  Our platform is more than a marketplace; it's a community. As you navigate through the digital fields, know that your success is at the core of everything we do. Responsive customer support, transparent transactions, and a commitment to your growth make us your true agri-partner.
+                    Our platform is more than a marketplace; it's a community.
+                    As you navigate through the digital fields, know that your
+                    success is at the core of everything we do. Responsive
+                    customer support, transparent transactions, and a commitment
+                    to your growth make us your true agri-partner.
                   </p>
                 </div>
               </div>
               <div className=" flex gap-3 mt-8 w-full">
-                <img src={leaf} className=" w-[50px] h-[40px]"   alt="img" loading="lazy" />
+                <img
+                  src={leaf}
+                  className=" w-[50px] h-[40px]"
+                  alt="img"
+                  loading="lazy"
+                />
                 <div>
-                  <h1 className=" font-semibold">Sustainable Solutions, Harvesting Tomorrow</h1>
+                  <h1 className=" font-semibold">
+                    Sustainable Solutions, Harvesting Tomorrow
+                  </h1>
                   <p className=" font-thin">
-                  We believe in farming for the future. Our commitment to sustainability reflects in our equipment choices. Efficient, eco-friendly, and designed to leave a minimal footprint on the earth. Let's cultivate tomorrow's harvest, responsibly.
+                    We believe in farming for the future. Our commitment to
+                    sustainability reflects in our equipment choices. Efficient,
+                    eco-friendly, and designed to leave a minimal footprint on
+                    the earth. Let's cultivate tomorrow's harvest, responsibly.
                   </p>
                 </div>
               </div>
-              
             </div>
           </div>
         </div>
       </section>
 
-
       {/* {Number section } */}
-      <section className=" h-[50vh] overflow-x-clip bg-tractor w-full flex justify-center items-center  bg-cover bg-center relative bg-fixed  ">
-        <div className=" flex  justify-between w-[1080px]">
-           <div>
-            <CountUp 
-              className=" text-7xl font-semibold text-gray-700"
+      <section className=" min-h-[50vh] overflow-x-clip bg-tractor w-full md:flex-row flex flex-col justify-center items-center  bg-cover bg-center relative bg-fixed  ">
+        <div className=" md:flex-row flex flex-col md:justify-between justify-center w-[1080px]">
+          <div className=" flex mt-5 justify-center">
+            <CountUp
+              className=" mx-auto text-7xl font-semibold text-gray-700"
               end={100}
               duration={10}
             />
-           </div>
-           <div>   <CountUp 
+          </div>
+          <div className=" flex mt-5 justify-center">
+            {" "}
+            <CountUp
               className=" text-7xl font-semibold text-gray-700"
               end={100}
               duration={10}
               loading={"lazy"}
-            /></div>
-           <div> <CountUp 
+            />
+          </div>
+          <div className=" flex mt-5 justify-center">
+            {" "}
+            <CountUp
               className=" text-7xl font-semibold text-gray-700"
               end={100}
               duration={10}
-            /></div>
-           <div>  <CountUp 
+            />
+          </div> 
+          <div className=" flex mt-5 justify-center">
+            {" "}
+            <CountUp
               className=" text-7xl font-semibold text-gray-700"
               end={100}
               duration={10}
-            /></div>
-
+            />
+          </div>
         </div>
       </section>
     </div>
