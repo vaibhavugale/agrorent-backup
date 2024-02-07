@@ -80,7 +80,7 @@ export async function logout(navigate,dispatch,e){
   navigate("/");
 
  }catch(err){
-    console.log(Error)
+    console.log(err)
  }
 }
 

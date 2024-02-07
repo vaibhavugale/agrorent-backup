@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { FiSearch } from "react-icons/fi";
 import { FaHome } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
 import { FcBusinessContact } from "react-icons/fc";
@@ -38,7 +39,7 @@ const Header = () => {
 
         <div className=" hidden md:flex justify-between items-center gap-7">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/dashboard">Dashboard</NavLink>
+          <NavLink className={ "flex justify-center items-center gap-2 hover:text-green-700"} to="/search"><FiSearch /> Search</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/contact">Contact</NavLink>
           {!user?.userData ? (
@@ -54,6 +55,7 @@ const Header = () => {
             <abbr className=" relative" title="click to open menu box">
               <img
                 src={imgUrl}
+                onClick={()=>navigate("/profile/account")}
                 className="  cursor-pointer w-[40px] h-[40px] object-cover rounded-full"
                 alt="img"
               />
@@ -70,28 +72,11 @@ const Header = () => {
         >
           {!user?.userData ? (
             <>
-              <NavLink
-                onClick={(e) => {
-                  e.stopPropagation();
-                }}
-                to="/login"
-                className={
-                  " bg-orange-400  hidden p-1 hover:bg-orange-500 text-white font-semibold transition-all duration-300  tracking-wider px-5 rounded-full"
-                }
-              >
-                Login
-              </NavLink>
-
               <RxHamburgerMenu size={30} className=" block md:hidden" />
             </>
           ) : (
             <>
-              <img
-                src={imgUrl}
-                className=" hidden md:block  w-[40px] cursor-pointer rounded-full"
-                alt="img"
-              />
-              <RxHamburgerMenu size={30} />
+              <RxHamburgerMenu size={30} className=" block md:hidden" />
             </>
           )}
         </div>

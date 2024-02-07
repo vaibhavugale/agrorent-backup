@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import Footer from "./components/footer/Footer";
 import { getAddress } from "./api/getCurrentAddress";
 import { setAddress } from "./store/slices/userSlice";
+import { getALlEquipment } from "./api/equipmentApi";
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -35,7 +36,9 @@ const App = () => {
       navigator.geolocation.getCurrentPosition(success, error, options);
     };
       getIp();
-  }, [dispatch]);
+
+      dispatch(getALlEquipment());
+  }, []);
 
   return (
     <div className="  min-w-[100vw] min-h-[100vh]  box-border  overflow-clip ">

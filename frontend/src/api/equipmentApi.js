@@ -1,6 +1,7 @@
 import toast from "react-hot-toast";
 import { apiConnector } from "./apiConnector";
-import { REGISTER_EQUIPMENT } from "../constant/constant";
+import { GET_ALL_LIST, REGISTER_EQUIPMENT } from "../constant/constant";
+import { setAllEqu } from "../store/slices/equSlice";
 
 export  function registeredEquip(formData,reset,setData,token){
     return async (dispatch)=>{
@@ -19,6 +20,18 @@ export  function registeredEquip(formData,reset,setData,token){
             console.log(err);
             toast.error("Something went wrong while registration..");
             toast.dismiss(toastId);
+        }
+    }
+}
+
+export function getALlEquipment (){
+    return async (dispatch) =>{
+        
+        try{
+            const res = await apiConnector("GET",GET_ALL_LIST); 
+            dispatch( setAllEqu(res?.data?.data));
+        }catch(err){
+            console.log(err);
         }
     }
 }
