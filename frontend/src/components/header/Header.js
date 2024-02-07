@@ -14,13 +14,17 @@ import { logout } from "../../api/authApi";
 import { RxCross1 } from "react-icons/rx";
 import { CgProfile } from "react-icons/cg";
 import { IoIosArrowDown } from "react-icons/io";
-import { MdKeyboardDoubleArrowRight ,MdKeyboardDoubleArrowLeft} from "react-icons/md";
+import {
+  MdKeyboardDoubleArrowRight,
+  MdKeyboardDoubleArrowLeft,
+} from "react-icons/md";
 import { MdHistory } from "react-icons/md";
 import { IoAddOutline } from "react-icons/io5";
 import { MdAccountCircle } from "react-icons/md";
 import { IoIosSettings } from "react-icons/io";
 import { FcSurvey } from "react-icons/fc";
 import { BiLogOut } from "react-icons/bi";
+import { CiSearch } from "react-icons/ci";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -39,7 +43,14 @@ const Header = () => {
 
         <div className=" hidden md:flex justify-between items-center gap-7">
           <NavLink to="/">Home</NavLink>
-          <NavLink className={ "flex justify-center items-center gap-2 hover:text-green-700"} to="/search"><FiSearch /> Search</NavLink>
+          <NavLink
+            className={
+              "flex justify-center items-center gap-2 hover:text-green-700"
+            }
+            to="/search"
+          >
+            <FiSearch /> Search
+          </NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/contact">Contact</NavLink>
           {!user?.userData ? (
@@ -55,7 +66,7 @@ const Header = () => {
             <abbr className=" relative" title="click to open menu box">
               <img
                 src={imgUrl}
-                onClick={()=>navigate("/profile/account")}
+                onClick={() => navigate("/profile/account")}
                 className="  cursor-pointer w-[40px] h-[40px] object-cover rounded-full"
                 alt="img"
               />
@@ -68,17 +79,14 @@ const Header = () => {
             e.stopPropagation();
             setShow(!show);
           }}
-          className="  md:hidden cursor-pointer flex justify-center items-center p-4"
+          className="  md:hidden cursor-pointer flex justify-center gap-2 items-center p-4"
         >
-          {!user?.userData ? (
-            <>
-              <RxHamburgerMenu size={30} className=" block md:hidden" />
-            </>
-          ) : (
-            <>
-              <RxHamburgerMenu size={30} className=" block md:hidden" />
-            </>
-          )}
+          <CiSearch
+            onClick={() => navigate("/search")}
+            size={30}
+            className=" block md:hidden"
+          />
+          <RxHamburgerMenu size={30} className=" block md:hidden" />
         </div>
 
         {show && (
@@ -144,12 +152,49 @@ const Header = () => {
                     </div>
 
                     {openProfile && (
-                      <ul onClick={()=>setShow(false)}  className=" scale-100 transition-all duration-300 w-full ml-[2.25rem]">
-                      <Link to={"/profile/account"} className={`flex  rounded-sm items-center hover:text-white gap-1 p-2 w-full  hover:bg-slate-600 transition-all duration-300 `} > <MdAccountCircle size={20} />{ show ? "Account" :""}</Link>
-    <Link to={"/profile/equipment"} className={`flex  hover:text-white  gap-1 p-2 w-full  hover:bg-slate-600 transition-all duration-300 `} ><IoAddOutline  size={20} />{show ? "Equipment":""}</Link>
-    <Link to={"/profile/history"} className={`flex  hover:text-white  gap-1 p-2 w-full  hover:bg-slate-600 transition-all duration-300 `}> <MdHistory size={20} />{show ? "History":""}</Link>
-    <Link to={"/profile/setting"} className={`flex  hover:text-white   gap-1 p-2 w-full  hover:bg-slate-600 transition-all duration-300 `} > <IoIosSettings size={20}/>{show ?"Setting":""}</Link>
-    <Link to={"/profile/user-product"} className={`flex    hover:text-white   gap-1 p-2 w-full  hover:bg-slate-600 transition-all duration-300 `}> <FcSurvey size={20} />{ show ? "Your Product":""}</Link>
+                      <ul
+                        onClick={() => setShow(false)}
+                        className=" scale-100 transition-all duration-300 w-full ml-[2.25rem]"
+                      >
+                        <Link
+                          to={"/profile/account"}
+                          className={`flex  rounded-sm items-center hover:text-white gap-1 p-2 w-full  hover:bg-slate-600 transition-all duration-300 `}
+                        >
+                          {" "}
+                          <MdAccountCircle size={20} />
+                          {show ? "Account" : ""}
+                        </Link>
+                        <Link
+                          to={"/profile/equipment"}
+                          className={`flex  hover:text-white  gap-1 p-2 w-full  hover:bg-slate-600 transition-all duration-300 `}
+                        >
+                          <IoAddOutline size={20} />
+                          {show ? "Equipment" : ""}
+                        </Link>
+                        <Link
+                          to={"/profile/history"}
+                          className={`flex  hover:text-white  gap-1 p-2 w-full  hover:bg-slate-600 transition-all duration-300 `}
+                        >
+                          {" "}
+                          <MdHistory size={20} />
+                          {show ? "History" : ""}
+                        </Link>
+                        <Link
+                          to={"/profile/setting"}
+                          className={`flex  hover:text-white   gap-1 p-2 w-full  hover:bg-slate-600 transition-all duration-300 `}
+                        >
+                          {" "}
+                          <IoIosSettings size={20} />
+                          {show ? "Setting" : ""}
+                        </Link>
+                        <Link
+                          to={"/profile/user-product"}
+                          className={`flex    hover:text-white   gap-1 p-2 w-full  hover:bg-slate-600 transition-all duration-300 `}
+                        >
+                          {" "}
+                          <FcSurvey size={20} />
+                          {show ? "Your Product" : ""}
+                        </Link>
                       </ul>
                     )}
                   </div>
