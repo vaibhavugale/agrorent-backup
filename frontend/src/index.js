@@ -97,5 +97,6 @@ const appRoutes = createBrowserRouter([
   },
 ]);
 
+// addingfor texting branch working
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRoutes} />);
