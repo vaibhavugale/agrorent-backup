@@ -7,8 +7,6 @@ exports.authentication = async (req, res, next) => {
     req.cookies.token ||
     req.body.token ||
     req.header("Authorization").replace("Bearer ", "");
-    // const authHeader = req.headers['authorization'];
-    // const token = authHeader.split(' ')[1]; 
     
     if (!token) {
       return res.status(403).json({
@@ -18,10 +16,12 @@ exports.authentication = async (req, res, next) => {
     }
     const decode = jwt.verify(token, process.env.JWT_SECRET);
 
+
     if (decode) {
-      const ui = decode.userID
-      const user = await User.findOne({ ui });
+      const user = decode;
+     
       req.body.user = user;
+      // console.log(user);
 
       next();
     } else {

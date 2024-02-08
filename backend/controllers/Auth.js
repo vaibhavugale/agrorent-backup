@@ -23,9 +23,10 @@ exports.signIn = async (req, res) => {
         message: "User Not Found!!!",
       });
     }
+    const result = await bcrypt.compare(password, user?.password);
 
-    if (bcrypt.compare(password, user.password)) {
-      const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+    if (result) {
+      const token = jwt.sign({ user: user }, process.env.JWT_SECRET, {
         expiresIn: "24h",
       });
       user.token = token;
@@ -35,7 +36,8 @@ exports.signIn = async (req, res) => {
         httpOnly: true,
         secure: true,
         path:"/",
-        sameSite:'None'
+        sameSite:'None',
+        overwrite:true
       };
       await res.cookie("token", token, options)
       return  res.status(200).json({
@@ -50,6 +52,13 @@ exports.signIn = async (req, res) => {
         message: "Invalid password!!!",
       });
     }
+
+
+
+
+
+
+
   } catch (err) {
     return res.status(500).json({
       success: false,
@@ -82,7 +91,7 @@ exports.signUp = async (req, res) => {
     // check user already exist
 
     const user = await User.findOne({ phoneNumber: phone });
-    console.log(user);
+
     if (!user) {
       const hashPassword = await bcrypt.hash(password, 10);
       const newUser = await User.create({
@@ -127,4 +136,5 @@ exports.logout = async (req,res)=>{
     })
    }
 }
+
 

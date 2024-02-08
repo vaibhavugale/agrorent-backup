@@ -22,12 +22,34 @@ exports.getListOfEquipment = async (req,res) =>{
     }
 }
 
+exports.getListOfEquipmentUserWise = async (req,res) =>{
+    try{
+
+        const  userId  = req?.body?.user?.user?._id;
+        const equipmentList = await equipment.find({owner:userId});
+
+        return res.status(200).json({
+            success:true,
+            data:equipmentList,
+            message:"Data fetch successfully..."
+        })
+
+
+
+    }catch(err){
+        return res.status(500).json({
+            success:false,
+            message:"Something wrong while fetching equipment data!!!"
+        })
+    }
+}
+
 exports.registerEquipment = async (req,res) =>{
    try{
     const {name,type,manufacturer,model,year,capacity,rate,feature} = JSON.parse(req.body.data);
 
     const image = req.files.image;
-    const {_id} = req.body.user;
+    const  userId  = req?.body?.user?.user?._id;
 
     if(!name || !type || !manufacturer || !model || !year || !rate){
         return res.status(401).json({
@@ -45,13 +67,13 @@ exports.registerEquipment = async (req,res) =>{
         capacity,
         image:cloudRes?.secure_url,
         rate,
-        owner:_id,
+        owner:userId,
         feature
     })
 
     if(newEquipment){
             try{
-                await User.updateOne({_id},{
+                await User.findOneAndUpdate({_id:userId},{
                     $push:{
                         equipments:newEquipment._id
                     }

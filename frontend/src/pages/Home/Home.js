@@ -3,9 +3,11 @@ import johnDeere from "../../assets/images/jonn-deere-tractor.png";
 import { IoCubeOutline } from "react-icons/io5";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import logo from "../../assets/logo.png"
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <div>
       {/* Heading section */}
@@ -16,8 +18,8 @@ const Home = () => {
           <p className=" font-sans text-4xl font-bold">Rent Pe Equipment chahiye Aajao boss dila dunga!!!</p>
           <p className=" mt-5 font-sans text-xl">Rent the Best Farming Equipment</p>
           <div className=" mt-10 flex gap-6">
-            <button className=" bg-green-700 rounded-md  border-none p-3  font-bold text-johnYellow-100">Get Started</button>
-            <button className=" flex   justify-between font-semibold gap-1 items-center ">Learn more <IoIosArrowRoundForward  size={25} /> </button>
+            <button onClick={ ()=>navigate("/search")} className=" bg-green-700 rounded-md  border-none p-3  font-bold text-johnYellow-100">Get Started</button>
+            <button onClick={()=>navigate("/about")} className=" flex   justify-between font-semibold gap-1 items-center ">Learn more <IoIosArrowRoundForward  size={25} /> </button>
           </div>
           </div>
 

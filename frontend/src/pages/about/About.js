@@ -122,14 +122,15 @@ const Index = () => {
       {/* {Number section } */}
       <section className=" min-h-[50vh] overflow-x-clip bg-tractor w-full md:flex-row flex flex-col justify-center items-center  bg-cover bg-center relative bg-fixed  ">
         <div className=" md:flex-row flex flex-col md:justify-between justify-center w-[1080px]">
-          <div className=" flex mt-5 justify-center">
+          <div  className=" flex flex-col items-center mt-5 justify-center">
             <CountUp
               className=" mx-auto text-7xl font-semibold text-gray-700"
               end={100}
               duration={10}
             />
+            <p  className=" text-3xl font-semibold text-slate-900" >Total User</p>
           </div>
-          <div className=" flex mt-5 justify-center">
+          <div  className=" flex flex-col items-center mt-5 justify-center">
             {" "}
             <CountUp
               className=" text-7xl font-semibold text-gray-700"
@@ -137,23 +138,18 @@ const Index = () => {
               duration={10}
               loading={"lazy"}
             />
+            <p className=" text-3xl font-semibold text-slate-900">Total Equipment</p>
           </div>
-          <div className=" flex mt-5 justify-center">
+          <div className=" flex flex-col items-center mt-5 justify-center">
             {" "}
             <CountUp
               className=" text-7xl font-semibold text-gray-700"
               end={100}
               duration={10}
             />
+            <p className=" text-3xl font-semibold text-slate-900">Total Request</p>
           </div> 
-          <div className=" flex mt-5 justify-center">
-            {" "}
-            <CountUp
-              className=" text-7xl font-semibold text-gray-700"
-              end={100}
-              duration={10}
-            />
-          </div>
+        
         </div>
       </section>
     </div>

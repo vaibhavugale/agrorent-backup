@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {useForm} from "react-hook-form"
 import Button from '../../common/Button/Button';
 import { updateProfile } from '../../../api/authApi';
+import { MdOutlineFileUpload } from "react-icons/md";
 
 const UpdateProfile = ({user,img,location}) => {
     const token = user?.token;
@@ -90,7 +91,7 @@ const UpdateProfile = ({user,img,location}) => {
       </div>
     </div>
 
-    <Button disabled={disabled} backGroundColor={"bg-green-700"} width={"w-[15%]"} title={"Update"}/>
+    <Button disabled={disabled} backGroundColor={"bg-green-700"} width={"w-[15%]"} title={<><MdOutlineFileUpload className=' block md:hidden' size={30}/> <p className=' hidden md:block'>Upload</p></>}/>
   </form>
   )
 }

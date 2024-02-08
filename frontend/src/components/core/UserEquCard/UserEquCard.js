@@ -6,7 +6,7 @@ const UserEquCard = () => {
   return (
    <section className='  w-full bg-slate-200'>
      <p className=" p-5 tracking-widest">{location?.pathname}</p>
-     <div className=' w-full h-min grid  grid-cols-3  gap-5  p-5'>
+     <div className=' w-full h-min grid  md:grid-cols-3  grid-cols-1 gap-5  p-5'>
 
         {
           user?.equipments.map((cardData,index)=>  <ProductCard key={index} cardData={ cardData} />)

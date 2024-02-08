@@ -11,6 +11,7 @@ const equipmentRoutes = require("./routes/equipmentRoutes");
 const profileRoute = require("./routes/profile")
 const { authentication } = require("./middleware/Auth");
 const { sendMessage } = require("./services/whatsappService.js");
+
 const router = require("express").Router();
 
 
