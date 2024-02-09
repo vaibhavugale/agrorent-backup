@@ -145,3 +145,22 @@ exports.nearByEquipmentSuggestionAlgorithm = async (req,res) =>{
         })
     }
 }
+
+exports.deleteEquipment =async (req,res) =>{
+   const {equID} = req.body;
+   try{
+        const result = await equipment.findOneAndDelete({_id:equID});
+      
+        return res.status(200).json({
+                success:true,
+                message:"Equipment Deleted Successfully"
+            })
+       
+   }catch(err){
+    return res.status(500).json({
+        success:false,
+        error:err.message,
+        message:"Internal server error"
+    })
+   }
+}

@@ -95,7 +95,7 @@ const Index = () => {
           leaveTo="opacity-0"
         >
          <div onClick={()=>setShowModal(false)}  className={`  backdrop-blur-sm  flex justify-center items-center bottom-0 right-0 left-0 top-0 z-20 absolute`}>
-           <div className='     bg-white mx-auto w-[90%] md:w-[30%] md:h-[20%] shadow-2xl  -mt-[450px] rounded-md'>
+           <div className='     bg-slate-200 mx-auto w-[90%] md:w-[30%] md:h-[20%] shadow-2xl  -mt-[450px] rounded-md'>
               <p className=' text-center text-2xl py-5'>Confirm Booking ? </p>
               <div className=' md:w-full  flex-row flex justify-around p-2'>
                   <button onClick={handelBooking} className=' bg-green-700  w-[100px]  md:min-w-[100px] transition-all duration-200 p-3 rounded-md text-white cursor-pointer hover:bg-green-800'>Confirm</button>
