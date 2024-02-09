@@ -1,9 +1,9 @@
-const { getListOfEquipment, registerEquipment, nearByEquipmentSuggestionAlgorithm } = require("../controllers/euipmentContollers");
+const { registerEquipment, nearByEquipmentSuggestionAlgorithm, getListOfEquipmentUserWise } = require("../controllers/euipmentContollers");
 
 
 const router = require("express").Router();
 
-router.get("/getList",getListOfEquipment);
+router.post("/user-equipment",getListOfEquipmentUserWise)
 router.post("/registerEquipment",registerEquipment);
 router.post("/getSuggestedEquipment",nearByEquipmentSuggestionAlgorithm)
 

@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bf724dfd.css",
+    "main.js": "/static/js/main.ba503acf.js",
+    "static/media/leaf.png": "/static/media/leaf.9b5f1d7782229a10400e.png",
+    "static/media/bulldozerLogo.png": "/static/media/bulldozerLogo.3cc7d7cb220f73a48999.png",
+    "static/media/wheat-farm-filed.jpg": "/static/media/wheat-farm-filed.42c5c21c2e1ec7135c90.jpg",
+    "static/media/bg-landescap.png": "/static/media/bg-landescap.98de7f0d73ee60c35684.png",
+    "static/media/jonn-deere-tractor.png": "/static/media/jonn-deere-tractor.ec5b428b6a125d29f557.png",
+    "static/media/success.png": "/static/media/success.173d71e41a8dc219cec4.png",
+    "static/media/farmer.png": "/static/media/farmer.cdd6b432c5c249561ea2.png",
+    "static/media/logo.png": "/static/media/logo.80cfd3f2f1fea6ee1769.png",
+    "static/media/noimagesvg.svg": "/static/media/noimagesvg.ee103990b2f6a9c970f0dec66f362fef.svg",
+    "index.html": "/index.html",
+    "main.bf724dfd.css.map": "/static/css/main.bf724dfd.css.map",
+    "main.ba503acf.js.map": "/static/js/main.ba503acf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bf724dfd.css",
+    "static/js/main.ba503acf.js"
+  ]
+}

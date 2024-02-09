@@ -11,6 +11,7 @@ const equipmentRoutes = require("./routes/equipmentRoutes");
 const profileRoute = require("./routes/profile")
 const { authentication } = require("./middleware/Auth");
 const { sendMessage } = require("./services/whatsappService.js");
+
 const router = require("express").Router();
 
 
@@ -20,7 +21,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
 	cors({
-		origin:"http://localhost:3000",
+		origin:["https://agrorent.vercel.app","http://localhost:3000","*"],
 		credentials:true,
 		
 	})

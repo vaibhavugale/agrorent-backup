@@ -34,15 +34,15 @@ const AddEquipment = () => {
     dispatch(registeredEquip(formData,reset,setData,setDisabled,token));
   }
   return (
-    <div className=" w-full  bg-formBg-100 flex justify-center h-[1200px] overflow-scroll">
-      <form onSubmit={handleSubmit(submitHandler)} className=" bg-white shadow-lg max-w-[90%] mt-16 max-h-[90%] rounded-sm p-5">
+    <div className=" w-full  bg-formBg-100 flex justify-center md:h-[1200px] overflow-scroll">
+      <form onSubmit={handleSubmit(submitHandler)} className=" bg-white shadow-lg md:max-w-[90%] mt-16 md:max-h-[90%] mb-16 md:mb-0 rounded-sm p-5">
         <div className=" flex flex-row justify-center items-center">
           <p className=" font-semibold w-full text-2xl">
             Registered Your Equipment
-          </p>
-          <Button  className={" "} disabled={disabled} title={"Register"} />
+          </p> 
+          <Button  className={" w-[30%]"} disabled={disabled} title={"Register"} />
         </div>
-        <div className=" grid grid-cols-3 gap-6  p-5 items-center justify-center outline  outline-green-600 rounded-sm grid-rows-auto mt-10">
+        <div className=" grid grid-cols-1 md:grid-cols-3 gap-6  p-5 items-center justify-center outline  outline-green-600 rounded-sm grid-rows-auto mt-10">
           <div className="  p-2">
             <p className=" tracking-wide">
               {" "}
@@ -171,7 +171,7 @@ const AddEquipment = () => {
           {data ? (
             <ImagePreview
               data={data}
-              className={"max-w-[450px] relative rounded-md object-cover"}
+              className={"max-w-[300px] md:max-w-[450px] relative rounded-md object-cover"}
             />
           ) : (
             <div>

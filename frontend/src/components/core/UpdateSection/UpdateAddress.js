@@ -3,6 +3,7 @@ import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux"
 import Button from '../../common/Button/Button';
 import { updateAddress } from '../../../api/authApi';
+import { MdOutlineFileUpload } from "react-icons/md";
 
 const UpdateAddress = () => {
     const address = useSelector((state)=>state.userSlice.address);
@@ -51,7 +52,7 @@ const UpdateAddress = () => {
          </div>
         
     </section>
-    <Button disabled={disabled} backGroundColor={"bg-green-700"} width={"w-[15%]"} title={"Update"}/>
+    <Button disabled={disabled} backGroundColor={"bg-green-700"} width={"w-[15%]"} title={<><MdOutlineFileUpload className=' block md:hidden' size={30}/> <p className=' hidden md:block'>Upload</p></>}/>
     
     </form>
   )

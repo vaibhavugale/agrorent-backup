@@ -7,6 +7,7 @@ import {useDispatch} from "react-redux"
 
 import { signup } from "../../api/authApi";
 import { useNavigate } from "react-router-dom";
+import Button from "../common/Button/Button";
 
 const Signup = () => {
   const {
@@ -82,7 +83,7 @@ const Signup = () => {
             {...register("cnfPassword", { required: true })}
           />
         </div>
-        <button className=" mt-3 w-full bg-OR-50 p-2 rounded-md" type="submit"  title={"Submit"} />
+        <Button className=" mt-3 w-full bg-OR-50 p-2 rounded-md" type="submit"  title={"Submit"} />
           
         
       </form>

@@ -4,11 +4,13 @@ const User = require('./User');
 const equipmentSchema = new mongoose.Schema({
       name:{
         type:String,
-        require:true
+        require:true,
+        default:""
       },
       type:{
         type:String,
-        require:true
+        require:true,
+        default:""
       },
       manufacturer:{
         type:String,
@@ -16,7 +18,8 @@ const equipmentSchema = new mongoose.Schema({
       },
       model:{
         type:String,
-        default:false
+        default:false,
+        default:""
       },
       year:{
         type:String,
@@ -40,6 +43,12 @@ const equipmentSchema = new mongoose.Schema({
         ref:'User',
         require:true, 
     
+      },
+      available:{
+        type:Boolean,
+        require:true,
+       default: true,
+      
       }
 })
 

@@ -12,6 +12,7 @@ import { MdKeyboardDoubleArrowRight ,MdKeyboardDoubleArrowLeft} from "react-icon
 
 const SideBar = ({location,navigate,dispatch}) => {
    const [show,setShow] = useState(true);
+   
   return (
     <aside className={`border-r border-OR-50 ${show ? "min-w-[160px] ":""} max-w-[160px]  overflow-hidden  hidden md:flex flex-col`}>
     <div onClick={()=>setShow(!show)} className=' cursor-pointer w-full mt-5 flex justify-end p-3'> {!show ? <MdKeyboardDoubleArrowRight size={30} /> :<MdKeyboardDoubleArrowLeft size={30} /> }</div>

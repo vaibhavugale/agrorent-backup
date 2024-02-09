@@ -7,9 +7,9 @@ import { FaRupeeSign } from "react-icons/fa";
 const ProductCard = ({cardData}) => {
     const {model,rate ,  manufacturer,image,name} = cardData;
   return (
-    <div className=" relative bg-white w-[400px] flex justify-start items-center flex-col rounded-b-sm overflow-clip rounded-md">
+    <div className=" relative bg-white md:w-[400px] flex justify-start items-center flex-col rounded-b-sm overflow-clip rounded-md">
       <img
-        className=" max-w-full min-h-[250px] max-h-[250px]  object-cover"
+        className=" max-w-full md:min-h-[250px] md:max-h-[250px] w-[300px]  object-cover"
         src={image}
         alt="img"
       />

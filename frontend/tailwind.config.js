@@ -22,6 +22,11 @@ theme: {
     },
     backgroundImage:{
        'tractor':"url('../src/assets/wheat-farm-filed.jpg')"
+    },
+    transitionProperty: {
+      'h': 'h',
+      'width':'width',
+      'spacing': 'margin, padding',
     }
   },
 },

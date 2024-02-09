@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className=" relative  bottom-0 bg-orange-950 text-white   ">
-      <div className=" flex-col md:flex-row  flex items-center justify-evenly p-5 w-[1080px] mx-auto">
-        <div>
+      <div className=" grid md:grid-cols-4 grid-cols-1 p-2  items-center justify-center justify-items-center co gap-5 md:p-5 max-w-[1080px] mx-auto">
+        <div className="flex  justify-between w-full md:flex-col flex-row">
           <p> Quick Link</p>
           <div className=" flex text-sm flex-col">
             <Link>FAQs</Link>
@@ -19,7 +19,7 @@ const Footer = () => {
             <Link>Login</Link>
           </div>
         </div>
-        <div>
+        <div  className="flex  justify-between w-full md:flex-col flex-row">
           <p> Quick Link</p>
           <div className=" flex text-sm flex-col">
             <Link>FAQs</Link>
@@ -28,7 +28,7 @@ const Footer = () => {
             <Link>Login</Link>
           </div>
         </div>
-        <div>
+        <div  className="flex  justify-between w-full md:flex-col flex-row">
           <p> Quick Link</p>
           <div className=" flex text-sm flex-col">
             <Link>FAQs</Link>
@@ -37,7 +37,7 @@ const Footer = () => {
             <Link>Login</Link>
           </div>
         </div>
-        <div>
+        <div  className="flex  justify-between w-full md:flex-col flex-row">
           <p> Quick Link</p>
           <div className=" flex text-sm flex-col">
             <Link>FAQs</Link>
@@ -47,8 +47,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className=" border-t border-orange-500 flex-col flex  md:flex-row  justify-between items-center w-[1080px]   mx-auto">
-        <div className=" flex p-2 ">
+      <div className=" border-t border-orange-500 overflow-clip flex-col flex  md:flex-row  justify-center md:justify-between items-center max-w-[1080px]   mx-auto">
+        <div className=" flex justify-center p-2">
           <img src={logo} className=" w-[40px] h-[25px] " alt="img" />
           <p className=" font-bold flex justify-center items-center">
             AGRORENT

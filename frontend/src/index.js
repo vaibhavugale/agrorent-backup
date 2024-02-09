@@ -21,7 +21,7 @@ import Account from "./components/Account/Account";
 import History from "./components/History/History";
 import Setting from "./components/Setting/Setting";
 import UserEquCard from "./components/core/UserEquCard/UserEquCard";
-import Dashboard from "./components/core/Dashboard";
+import Search from "./components/core/Search/index"
 const appRoutes = createBrowserRouter([
   {
     element: (
@@ -88,8 +88,8 @@ const appRoutes = createBrowserRouter([
         element: <About />,
       },
       {
-        path:"/dashboard",
-        element:<Dashboard />
+        path:"/search",
+        element:<Search />
       }
       
     ],
@@ -97,5 +97,6 @@ const appRoutes = createBrowserRouter([
   },
 ]);
 
+// addingfor texting branch working
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRoutes} />);
