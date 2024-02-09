@@ -5,8 +5,11 @@ import Button from '../../common/Button/Button';
 import { updateAddress } from '../../../api/authApi';
 
 const UpdateAddress = () => {
-    const address = useSelector((state)=>state?.userSlice?.address);
+    const address = useSelector((state)=>state.userSlice.address);
+    const token = useSelector((state)=>state.userSlice.token)
+ 
     const [disabled,setDisabled] = useState(false);
+    
     const {
         register,
         handleSubmit,
@@ -15,7 +18,7 @@ const UpdateAddress = () => {
     
       const submitHandler = async (data) =>{
         setDisabled(true);
-        const res = await updateAddress(data)
+        const res = await updateAddress(data,token)
         setDisabled(false);
       }
 

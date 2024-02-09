@@ -4,6 +4,7 @@ import Button from '../../common/Button/Button';
 import { updateProfile } from '../../../api/authApi';
 
 const UpdateProfile = ({user,img,location}) => {
+    const token = user?.token;
     const {
         register,
         handleSubmit,
@@ -13,7 +14,7 @@ const UpdateProfile = ({user,img,location}) => {
 
       const submitHandler = async (data) =>{
         setDisabled(true);
-        const res = await updateProfile(data)
+        const res = await updateProfile(data,token)
         setDisabled(false);
       }
   return (

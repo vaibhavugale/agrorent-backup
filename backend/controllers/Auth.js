@@ -35,6 +35,8 @@ exports.signIn = async (req, res) => {
         httpOnly: true,
         secure: true,
         overwrite:true,
+        sameSite: 'strict',
+        domain:".onrender.com"
   
       };
       await res.cookie("token", token, options)
