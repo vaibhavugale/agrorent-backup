@@ -105,7 +105,7 @@ exports.signUp = async (req, res) => {
       newUser.password = undefined;
       return  res.status(200).json({
         success:true,
-        newUser,
+        message:"Registration Successfully"
       })
     } else {
       return res.status(409).json({
