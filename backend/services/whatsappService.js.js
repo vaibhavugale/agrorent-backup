@@ -1,9 +1,9 @@
 const https = require('follow-redirects').https;
 
-exports.sendMessage = async (req,res) =>{
+exports.sendMessage =  ({message}) =>{
   
-   try{
-    await fetch('https://messages-sandbox.nexmo.com/v1/messages', {
+  return  fetch('https://messages-sandbox.nexmo.com/v1/messages', 
+   {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ exports.sendMessage = async (req,res) =>{
           from: '14157386102',
           to: '918308195301',
           message_type: 'text',
-          text: `Your otp is ${9370},please do not share your otp `,
+          text: `${message}`,
           channel: 'whatsapp'
         })
       })
@@ -25,17 +25,4 @@ exports.sendMessage = async (req,res) =>{
       .catch(error => {
         console.error('Error sending message:', error);
       });
-
-      return res.status(200).json({
-        success:true,
-        message:"Sms send on your Whatsapp..."
-      })
-      
-   }catch(err){
-    return res.status(5000).json({
-        success:true,
-        error:err.message,
-        message:"Internal server error..."
-    })
-   }
 }
